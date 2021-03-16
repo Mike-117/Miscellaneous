@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+class Solution {
+
+    /*
+     * Complete the pageCount function below.
+     */
+    static int pageCount(int n, int p) {
+        
+        double pp = Convert.ToDouble(p);
+        double turns = Math.Floor(pp/2);
+        if ((n-p)<p && n%2!=0){
+            double bb = Convert.ToDouble(n-p);
+            turns = Math.Floor(bb/2);
+        }
+        else if ((n-p)<p && n%2==0){
+            double bb = Convert.ToDouble(n+1-p);
+            turns = Math.Floor(bb/2);
+        }
+        return Convert.ToInt32(turns);
+    }
+
+    static void Main(string[] args) {
+        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        int p = Convert.ToInt32(Console.ReadLine());
+
+        int result = pageCount(n, p);
+
+        textWriter.WriteLine(result);
+
+        textWriter.Flush();
+        textWriter.Close();
+    }
+}
+
