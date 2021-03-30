@@ -1,0 +1,59 @@
+WebAPI & Angular
+
+1. create ASP.NET WebAPI project in VS
+2. add modules -EntityFrameworkCore
+		EntityFrameworkCore.SQLServer
+		EntityFrameworkCore.Tools
+3. Configure services
+	AddDbContext
+	use SQL Server
+	add JSON Controller options
+	add CORS
+4. Create Model - PaymentDetail
+	data binding
+	required
+	varchar for form
+5. Create DbContext Model
+	constructor takes objects like provider
+	connection string -from appsettings.json
+	DbSet - property of model taking instances of Model
+6. Set app settings
+	include windows authentication
+	allow multiple queries
+7. Create PaymentDetailController
+	performs CRUD operations
+7. Set migrations to create database
+
+
+Angular
+1. create angular project
+2. apply Bootstrap and fontawesome to index
+3. set styling sheet - validation errors, toastr
+4. create models
+5. PaymentDetailsComponent
+	-html -sets bs container
+	-ts - sets stylings
+	- 2 subclasses
+6. PaymentDetailComponent
+	-html creates form (includes validation-disable submit)
+7. PaymentDetailComponent.ts
+	- constructor calls Service, toastr
+	resetForm
+	onSubmit calls service
+	insertRecord
+	updateRecord
+8. PaymentDetailListComponent
+	-html iterates through list to display entries, includes delete onclick event
+	-ts -populate form, for form alterations
+	    -onDelete deletes record
+9. PaymentDetailsModel
+	corresponds to model in WebAPI
+	shared with all classes
+10.PaymentDetailService
+	- creates a service class that interacts with WebAPI
+	- defines route to API
+	- uses PDM as a property of class
+	- creates array of PD objects for the list
+	- intiates API calls, post, put, delete all talk to corresponding CRUD in API controller
+	- refreshList, utilizes GetPaymentDetails from API to populate list
+	
