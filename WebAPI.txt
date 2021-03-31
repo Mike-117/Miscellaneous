@@ -1,0 +1,9 @@
+dependency injection
+
+whenever we create a controller with the constructor parameter of the type PaymentDetailContext, the IServiceCollection property "services" will provide a new instance of this PDC into this constructor parameter "context" - we don't have to create the instance of the DbContext class explicitly
+
+if you want to share an instance of a class with multiple components, you must inject it into the app.module.ts file, and use that injected service instance into these other components.
+
+inside this payment-detail.service class, we need to use the model class. we create a property of the type payment-detail.model inside
+
+we have one problem to access WebAPI method from this ASP.NET Core project from this Angular server, will blow up requests from another app which is hosted from a different port number or a different domain. this feature is in WebAPI is called CORS. in order to conceal WebAPI methods from the ASP.NET project from this Angular, we have to enable CORS for Angular project inside the WebAPI project - we are going to use a Nuget package (MicrosoftAspNetCore.Cors)
