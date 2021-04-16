@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Find the Minimum and Maximum</h3>
+
+<p>Enter the numbers of your array. Please add a space between each number.</p>
+
+<input type="text" id="myText">
+
+<button onclick="myFunction()">Submit</button>
+
+<p id="minimum"></p>
+<p id="maximum"></p>
+
+<script>
+function myFunction() {
+  var input = document.getElementById("myText").value;
+  var strArray = input.split(" ");
+	
+  for(var x in strArray) { 
+  strArray[x] = parseFloat(strArray[x]);
+  return strArray;
+  } 
+  
+  
+  var min = Math.min(strArray);
+  document.getElementById("maximum").innerHTML = "The maximum is " + strArray;
+  document.getElementById("minimum").innerHTML = "The minimum is " + min;
+  
+}
+</script>
+
+</body>
+</html>
